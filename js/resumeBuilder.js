@@ -2,15 +2,6 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-// var name = "Nicole Sentis"
-// var role = "Junior Front End Developer"
-
-// var formattedName = HTMLheaderName.replace("%data%", name); 
-// var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-// $('#header').prepend(formattedRole);
-// $('#header').prepend(formattedName); 
-
 var skills = ["HTML5", " CSS3", " SCSS", " Bootstrap", " jQuery", " JavaScript", " Ruby", " Rails5", " SQL"];
 var contactInfo = {
   "mobile" : "07845587309",
@@ -23,21 +14,55 @@ var bio = {
   "name" : "Nicole Sentis",
   "role" : "Junior Front End Developer",
   "contactInfo" : contactInfo,
-  "pictureURL" : "http://4.bp.blogspot.com/-LrmSNfeI9Y8/URCO4UFllfI/AAAAAAAA3UY/K_MKt6rw__s/s1600/Random+Cute+Girls+%286%29.jpg",
+  "pictureURL" : "images/me.jpg",
   "welcomeMessage" : "Welcome to my website!",
   "skills" : skills
 };
 
-var work = {};
-work.currentJob = "Junior Front End Developer";
-work.employer = "Golden Trident Ltd";
-work.dates = "2017 - present ";
-work.city = "London"; 
+var work = {
+  "jobs": [
+    {
+      "title": "Junior Front End Developer",
+      "employer": "Golden Trident",
+      "dates": "July 2017 - present",
+      "location": "London, United Kingdom",
+      "description": "Front end developer"
+    },
+    {
+      "title": "Shop Assistant/Supervisor",
+      "employer": "Oxfam",
+      "dates": "2015 - 2016",
+      "location": "Newcastle upon Tyne, United Kingdom",
+      "description": "Shop assistant and supervisor"
+    }
+  ]
+};
 
-var education = {};
-education["school"] = "We Got Coders";
-education["years"] = "2016 - 2017";
-education["city"] = "Hoddesdon"; 
+var education = {
+  "schools": [
+    {
+      "name": "We Got Coders",
+      "city": "Hoddesdon, United Kingdom",
+      "degree": "Bootcamp",
+      "major": "Full Stack Web Development (Ruby on Rails)",
+      "gradYear": "2016 - 2017"
+    },
+    {
+      "name": "Newcastle University",
+      "city": "Newcastle upon Tyne, United Kingdom",
+      "degree": "MA",
+      "major": "Heritage Management",
+      "gradYear": "2011 - 2012"
+    },
+    {
+      "name": "Leiden University",
+      "city": "Leiden, The Netherlands",
+      "degree": "MA",
+      "major": "Art History",
+      "gradYear": "2008 - 2010"
+    }
+  ] 
+};
 
 // BIO VARIABLES
 var formattedName = HTMLheaderName.replace("%data%", bio.name); 
@@ -50,16 +75,42 @@ var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 var formattedWelcomeMssg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 
-// WORK VARIABLES
-var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employer);
-var formattedJob = HTMLworkTitle.replace("%data%", work.currentJob);
-var formattedDates = HTMLworkDates.replace("%data%", work.dates);
-var formattedWorkLoc = HTMLworkLocation.replace("%data%", work.city);
 
-// EDUCATION VARIABLES 
-var formattedSchool = HTMLschoolName.replace("%data%", education.school);
-var formattedYears = HTMLschoolDates.replace("%data%", education.years);
-var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.city);
+// WORK FUNCTION 
+
+function displayWork() {
+  for (var i = 0; i < work.jobs.length; i++) {
+    $("#workExperience").append(HTMLworkStart);
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+    $("#workExperience").append(formattedEmployer);
+    var formattedJob = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+    $("#workExperience").append(formattedJob);
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+    $("#workExperience").append(formattedDates);
+    var formattedWorkLoc = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+    $("#workExperience").append(formattedWorkLoc);
+    var formattedDescr = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+    $("#workExperience").append(formattedDescr);
+  }
+};
+
+// EDUCATION FUNCTION
+
+function displayEducation() {
+  for (var i = 0; i < education.schools.length; i++) {
+    $("#education").append(HTMLschoolStart);
+    var formattedSchool = HTMLschoolName.replace("%data%", education.schools[i].name);
+    $("#education").append(formattedSchool);
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+    $("#education").append(formattedDegree);
+    var formattedYears = HTMLschoolDates.replace("%data%", education.schools[i].gradYear);
+    $("#education").append(formattedYears);
+    var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.schools[i].city);
+    $("#education").append(formattedEdLoc);
+    var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+    $("#education").append(formattedMajor);
+  }
+};
 
 // HEADER 
 $('#header').prepend(formattedWelcomeMssg); 
@@ -75,15 +126,8 @@ $('#topContacts').prepend(formattedMobile);
 $("#header").append(HTMLskillsStart);
 $("#skills").append(formattedSkills);
 
-// WORK
-$("#workExperience").append(HTMLworkStart);
-$("#workExperience").append(formattedEmployer);
-$("#workExperience").append(formattedJob);
-$("#workExperience").append(formattedDates);
-$("#workExperience").append(formattedWorkLoc);
 
-// EDUCATION
-$("#education").append(HTMLschoolStart);
-$("#education").append(formattedSchool);
-$("#education").append(formattedYears);
-$("#education").append(formattedEdLoc);
+// CALL FUNCTIONS
+
+displayWork();
+displayEducation();

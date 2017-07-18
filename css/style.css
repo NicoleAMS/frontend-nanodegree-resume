@@ -175,6 +175,11 @@ span {
   text-align: center;
 }
 
+#workExperience, #education {
+  margin: 25px;
+  padding: 2%;
+}
+
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
