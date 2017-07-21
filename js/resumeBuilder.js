@@ -1,6 +1,4 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+// DATA 
 
 var skills = ["HTML5", " CSS3", " SCSS", " Bootstrap", " jQuery", " JavaScript", " Ruby", " Rails5", " SQL"];
 var contactInfo = {
@@ -11,7 +9,7 @@ var contactInfo = {
 }
 
 var bio = {
-  "name" : "Nicole Sentis",
+  "name" : "Nicole Anna Monique Sentis",
   "role" : "Junior Front End Developer",
   "contactInfo" : contactInfo,
   "pictureURL" : "images/me.jpg",
@@ -26,15 +24,13 @@ var work = {
       "employer": "Golden Trident",
       "dates": "July 2017 - present",
       "location": "London, United Kingdom",
-      "description": "Front end developer"
-    },
+      "description": "No sooner had we hidden the canoe than Ja plunged into the jungle, presently emerging into a narrow but well-defined trail which wound hither and thither much after the manner of the highways of all primitive folk, but there was one peculiarity about this Mezop trail which I was later to find distinguished them from all other trails that I ever have seen within or without the earth."},
     {
       "title": "Shop Assistant/Supervisor",
       "employer": "Oxfam",
       "dates": "2015 - 2016",
       "location": "Newcastle upon Tyne, United Kingdom",
-      "description": "Shop assistant and supervisor"
-    }
+      "description": "I think everyone expected to see a man emerge--possibly something a little unlike us terrestrial men, but in all essentials a man. I know I did. But, looking, I presently saw something stirring within the shadow: greyish billowy movements, one above another, and then two luminous disks--like eyes. Then something resembling a little grey snake, about the thickness of a walking stick, coiled up out of the writhing middle, and wriggled in the air towards me--and then another."}
   ]
 };
 
@@ -64,6 +60,29 @@ var education = {
   ] 
 };
 
+var projects = {
+  "projects": [
+    {
+      "title": "Something",
+      "dates": "2017",
+      "description": "Three were men and one a woman, and all were oddly dressed. They wore round hats that rose to a small point a foot above their heads, with little bells around the brims that tinkled sweetly as they moved. The hats of the men were blue; the little woman's hat was white, and she wore a white gown that hung in pleats from her shoulders. Over it were sprinkled little stars that glistened in the sun like diamonds.",
+      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+    },
+    {
+      "title": "Something Else",
+      "dates": "2016",
+      "description": "The men were dressed in blue, of the same shade as their hats, and wore well-polished boots with a deep roll of blue at the tops. The men, Dorothy thought, were about as old as Uncle Henry, for two of them had beards. But the little woman was doubtless much older. Her face was covered with wrinkles, her hair was nearly white, and she walked rather stiffly.",
+      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+    },
+    {
+      "title": "Another Something",
+      "dates": "2017",
+      "description": "Of the falling of the fifth cylinder I have presently to tell. The sixth star fell at Wimbledon. My brother, keeping watch beside the women in the chaise in a meadow, saw the green flash of it far beyond the hills. On Tuesday the little party, still set upon getting across the sea, made its way through the swarming country towards Colchester. The news that the Martians were now in possession of the whole of London was confirmed. They had been seen at Highgate, and even, it was said, at Neasden. But they did not come into my brother's view until the morrow.",
+      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+    }
+  ]
+};
+
 // BIO VARIABLES
 var formattedName = HTMLheaderName.replace("%data%", bio.name); 
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -74,43 +93,6 @@ var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location)
 var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 var formattedWelcomeMssg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-
-
-// WORK FUNCTION 
-
-function displayWork() {
-  for (var i = 0; i < work.jobs.length; i++) {
-    $("#workExperience").append(HTMLworkStart);
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-    $("#workExperience").append(formattedEmployer);
-    var formattedJob = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-    $("#workExperience").append(formattedJob);
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-    $("#workExperience").append(formattedDates);
-    var formattedWorkLoc = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-    $("#workExperience").append(formattedWorkLoc);
-    var formattedDescr = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-    $("#workExperience").append(formattedDescr);
-  }
-};
-
-// EDUCATION FUNCTION
-
-function displayEducation() {
-  for (var i = 0; i < education.schools.length; i++) {
-    $("#education").append(HTMLschoolStart);
-    var formattedSchool = HTMLschoolName.replace("%data%", education.schools[i].name);
-    $("#education").append(formattedSchool);
-    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
-    $("#education").append(formattedDegree);
-    var formattedYears = HTMLschoolDates.replace("%data%", education.schools[i].gradYear);
-    $("#education").append(formattedYears);
-    var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.schools[i].city);
-    $("#education").append(formattedEdLoc);
-    var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
-    $("#education").append(formattedMajor);
-  }
-};
 
 // HEADER 
 $('#header').prepend(formattedWelcomeMssg); 
@@ -123,11 +105,113 @@ $('#topContacts').prepend(formattedGithub);
 $('#topContacts').prepend(formattedEmail);
 $('#topContacts').prepend(formattedMobile);
 
-$("#header").append(HTMLskillsStart);
-$("#skills").append(formattedSkills);
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+  $("#skills").append(formattedSkills);
+}
+
+// INTERNATIONALIZE BUTTON 
+$('#header').append(internationalizeButton);
+
+// GOOGLE MAPS 
+$('#mapDiv').append(googleMap);
+
+// WORK FUNCTION 
+
+function displayWork() {
+  for(var i = 0; i < work.jobs.length; i++) {
+    $("#workExperience").append(HTMLworkStart);
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+    var formattedJob = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+    var formattedJobEmployer = formattedEmployer + formattedJob; 
+    $(".work-entry:last").append(formattedJobEmployer);
+
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+    $(".work-entry:last").append(formattedDates);
+    var formattedWorkLoc = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+    $(".work-entry:last").append(formattedWorkLoc);
+    var formattedDescr = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+    $(".work-entry:last").append(formattedDescr);
+  }
+}; 
+
+// EDUCATION FUNCTION
+
+function displayEducation() {
+  for (var i = 0; i < education.schools.length; i++) {
+    $("#education").append(HTMLschoolStart);
+    var formattedSchool = HTMLschoolName.replace("%data%", education.schools[i].name);
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+    var formattedSchoolDegree = formattedSchool + formattedDegree;
+    $(".education-entry:last").append(formattedSchoolDegree);
+
+    var formattedYears = HTMLschoolDates.replace("%data%", education.schools[i].gradYear);
+    $(".education-entry:last").append(formattedYears);
+    var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.schools[i].city);
+    $(".education-entry:last").append(formattedEdLoc);
+    var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+    $(".education-entry:last").append(formattedMajor);
+  }
+};
+
+// PROJECTS FUNCTION 
+projects.display = function() {
+  for (var i = 0; i < projects.projects.length; i++) { 
+    $("#projects").append(HTMLprojectStart);
+    var formattedPrTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+    var formattedPrDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+    var formattedPrDesc = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+    var formattedPrImg = HTMLprojectImage.replace("%data%", projects.projects[i].image);
+
+    $(".project-entry:last").append(formattedPrTitle);
+    $(".project-entry:last").append(formattedPrDates);
+    $(".project-entry:last").append(formattedPrDesc);
+    $(".project-entry:last").append(formattedPrImg);
+  }
+};
+
+// CLICK FUNCTION
+
+$(document).click(function(loc) {
+  // your code goes here
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x, y);
+});
+
+// LOCATION FUNCTION 
+
+function locationizer(work_obj) {
+    var locArray = [];
+    for (i = 0; i < work.jobs.length; i++) {
+        locArray.push(work.jobs[i].location);
+    }
+    console.log(locArray);
+    return locArray; 
+}
+
+// INTERNATIONALIZE NAME FUNCTION 
+
+function inName(name) {
+  var fullName = name.split(" ");
+  var nameArray = [];
+  for(i = 0; i < fullName.length; i++) {
+    if (i === fullName.length-1) {
+      var lastName = fullName[i].toUpperCase(); 
+      nameArray.push(lastName); 
+    }
+    else {
+      var firstName = fullName[i].charAt(0).toUpperCase() + fullName[i].slice(1); 
+      nameArray.push(firstName);
+    }
+  }
+  fullName = nameArray.toString().replace(/,/g, " ");
+  return fullName; 
+};
 
 
 // CALL FUNCTIONS
 
 displayWork();
 displayEducation();
+projects.display();
