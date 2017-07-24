@@ -8,12 +8,12 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBzvZ7wAwhxgMhU8KNb2kpBBOrQF-VFhmI"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-  <div id="main" class="container">
+  <div id="main" class="container beige">
     <div class="row">
       <div class="col col-12">
         <div id="header" class="center-content clear-fix">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col col-3" id="button"></div>
               </div>
-              <hr>
+              <hr id="headerHR">
               <div class="row">
                 <div class="col-6" id="headerSkills">
                 </div>
@@ -45,8 +45,19 @@
     </div>
 
     <div class="row">
-      <div class="col col-12">
+      <div class="col col-4">
         <button id="toggleButton" class="btn btn-primary" onclick="toggle()">Display Work Experience</button>
+      </div>
+      <div class="col col-4">
+        <button id="toggleButtonP" class="btn btn-primary" onclick="toggleP()">Display Projects</button>
+      </div>
+      <div class="col col-4">
+        <button id="toggleButtonE" class="btn btn-primary" onclick="toggleE()">Display Education</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-12">
         <div id="workExperience" class="gray">
           <h2>Work Experience</h2>
         </div>
@@ -55,7 +66,7 @@
 
     <div class="row">
       <div class="col col-12">
-        <div id="projects">
+        <div id="projects" class="gray">
           <h2>Projects</h2>
         </div>
       </div>
@@ -72,7 +83,7 @@
 
     <div class="row">
       <div class="col col-12">
-        <div id="mapDiv">
+        <div id="mapDiv" class="dark-gray">
           <h2>Where I've Lived and Worked</h2>
         </div>
       </div>

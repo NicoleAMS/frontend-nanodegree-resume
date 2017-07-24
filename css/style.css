@@ -1,7 +1,8 @@
 /* COLORS 
 
 blue: #2737BE;
-beige: #E6D5C2;
+beige: #E3DEDF;
+offwhite: #F3F3F3;
 */
 
 body,
@@ -66,12 +67,19 @@ h5 {
 
 }
 
-#workExperience {
+#workExperience, #projects, #education {
   display: none;
 }
 
-#toggleButton {
-  margin: 25px;
+#toggleButton, #toggleButtonP, #toggleButtonE {
+  margin-top: 75px;
+  margin-bottom: 25px;
+  width: 250px;
+  margin-left: 50px;
+}
+
+#headerHR {
+  border-top: 1px solid #F3F3F3;
 }
 
 .date-text {
@@ -142,6 +150,10 @@ a {
 
 .dark-gray {
   background-color: #4a4a4a;
+}
+
+.beige {
+  background-color: #E3DEDF;
 }
 
 /* TODO: Replace with image later */
@@ -223,14 +235,22 @@ span {
 
 #map {
   display: block;
-  height: 100%;
+  height: 80%;
   margin: 0 5%;
+  padding-bottom: 50px;
 }
 
 #mapDiv {
-  height: 400px;
+  height: 600px;
   width: 100%;
   padding-bottom: 5%;
+  margin-top: 50px;
+}
+
+#mapDiv h2 {
+  color: white;
+  padding: 25px;
+  text-align: center;
 }
 
 @media only screen and (min-width: 750px) {

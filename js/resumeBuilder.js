@@ -1,17 +1,17 @@
 // DATA 
 
 var skills = ["HTML5", " CSS3", " SCSS", " Bootstrap", " jQuery", " JavaScript", " Ruby", " Rails5", " SQL"];
-var contactInfo = {
+var contacts = {
   "mobile" : "07845587309",
   "email" : "nicole.sentis@gmail.com",
   "github" : "https://github.com/NicoleAMS",
-  "location" : "London"
+  "location" : "London, United Kingdom"
 }
 
 var bio = {
-  "name" : "Nicole Anna Monique Sentis",
+  "name" : "Nicole Sentis",
   "role" : "Junior Front End Developer",
-  "contactInfo" : contactInfo,
+  "contacts" : contacts,
   "pictureURL" : "images/me.jpg",
   "welcomeMessage" : "Welcome to my website!",
   "skills" : skills
@@ -38,24 +38,24 @@ var education = {
   "schools": [
     {
       "name": "We Got Coders",
-      "city": "Hoddesdon, United Kingdom",
+      "location": "Hoddesdon, United Kingdom",
       "degree": "Bootcamp",
       "major": "Full Stack Web Development (Ruby on Rails)",
       "gradYear": "2016 - 2017"
     },
     {
       "name": "Newcastle University",
-      "city": "Newcastle upon Tyne, United Kingdom",
+      "location": "Newcastle upon Tyne, United Kingdom",
       "degree": "MA",
       "major": "Heritage Management",
       "gradYear": "2011 - 2012"
     },
     {
       "name": "Leiden University",
-      "city": "Leiden, The Netherlands",
-      "degree": "MA",
+      "location": "Leiden, The Netherlands",
+      "degree": "BA & MA",
       "major": "Art History",
-      "gradYear": "2008 - 2010"
+      "gradYear": "2004 - 2010"
     }
   ] 
 };
@@ -86,16 +86,20 @@ var projects = {
 // BIO VARIABLES
 var formattedName = HTMLheaderName.replace("%data%", bio.name); 
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 var formattedWelcomeMssg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 
 // HEADER 
 // $('#header').prepend(formattedWelcomeMssg); 
+// document.getElementById('button').appendChild(internationalizeButton);
+// document.getElementById('headerName').appendChild(formattedName);
+// document.getElementById('headerName').appendChild(formattedRole);
+// document.getElementById('headerImg').appendChild(formattedPic);
 $('#button').prepend(internationalizeButton);
 $('#headerName').prepend(formattedRole);
 $('#headerName').prepend(formattedName); 
@@ -146,7 +150,7 @@ function displayEducation() {
 
     var formattedYears = HTMLschoolDates.replace("%data%", education.schools[i].gradYear);
     $(".education-entry:last").append(formattedYears);
-    var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.schools[i].city);
+    var formattedEdLoc = HTMLschoolLocation.replace("%data%", education.schools[i].location);
     $(".education-entry:last").append(formattedEdLoc);
     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
     $(".education-entry:last").append(formattedMajor);
@@ -215,7 +219,7 @@ function inName(name) {
   return fullName; 
 };
 
-// TOGGLE FUNCTION 
+// TOGGLE FUNCTIONS 
 function toggle() {
   var toggleEl = document.getElementById('workExperience');
   var button = document.getElementById('toggleButton');
@@ -233,6 +237,39 @@ function toggle() {
   } 
 };
 
+function toggleP() {
+  var toggleEl = document.getElementById('projects');
+  var button = document.getElementById('toggleButtonP');
+  if(toggleEl.style.display == "none") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Projects";
+  }
+  else if (toggleEl.style.display == "") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Projects";
+  } 
+  else {
+    toggleEl.style.display = "none";
+    button.innerHTML = "Display Projects";
+  } 
+};
+
+function toggleE() {
+  var toggleEl = document.getElementById('education');
+  var button = document.getElementById('toggleButtonE');
+  if(toggleEl.style.display == "none") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Education";
+  }
+  else if (toggleEl.style.display == "") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Education";
+  } 
+  else {
+    toggleEl.style.display = "none";
+    button.innerHTML = "Display Education";
+  } 
+};
 
 // CALL FUNCTIONS
 
