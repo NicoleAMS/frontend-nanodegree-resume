@@ -63,22 +63,22 @@ var education = {
 var projects = {
   "projects": [
     {
-      "title": "Something",
+      "title": "Amazing Animals App",
       "dates": "2017",
       "description": "Three were men and one a woman, and all were oddly dressed. They wore round hats that rose to a small point a foot above their heads, with little bells around the brims that tinkled sweetly as they moved. The hats of the men were blue; the little woman's hat was white, and she wore a white gown that hung in pleats from her shoulders. Over it were sprinkled little stars that glistened in the sun like diamonds.",
-      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+      "images": ["https://placeimg.com/250/150/animals/1", "https://placeimg.com/250/150/animals/2", "https://placeimg.com/250/150/animals/3"]
     },
     {
-      "title": "Something Else",
+      "title": "Awesome Architecture",
       "dates": "2016",
       "description": "The men were dressed in blue, of the same shade as their hats, and wore well-polished boots with a deep roll of blue at the tops. The men, Dorothy thought, were about as old as Uncle Henry, for two of them had beards. But the little woman was doubtless much older. Her face was covered with wrinkles, her hair was nearly white, and she walked rather stiffly.",
-      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+      "images": ["https://placeimg.com/250/150/arch/1", "https://placeimg.com/250/150/arch/2", "https://placeimg.com/250/150/arch/3"]
     },
     {
-      "title": "Another Something",
+      "title": "Tech Savvy",
       "dates": "2017",
       "description": "Of the falling of the fifth cylinder I have presently to tell. The sixth star fell at Wimbledon. My brother, keeping watch beside the women in the chaise in a meadow, saw the green flash of it far beyond the hills. On Tuesday the little party, still set upon getting across the sea, made its way through the swarming country towards Colchester. The news that the Martians were now in possession of the whole of London was confirmed. They had been seen at Highgate, and even, it was said, at Neasden. But they did not come into my brother's view until the morrow.",
-      "image": "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"
+      "images": ["https://placeimg.com/250/150/tech/1", "https://placeimg.com/250/150/tech/2", "https://placeimg.com/250/150/tech/3"]
     }
   ]
 };
@@ -95,10 +95,10 @@ var formattedWelcomeMssg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 
 // HEADER 
-$('#header').prepend(formattedWelcomeMssg); 
-$('#header').prepend(formattedRole);
-$('#header').prepend(formattedName); 
-$('#header').prepend(formattedPic);
+// $('#header').prepend(formattedWelcomeMssg); 
+$('#name').prepend(formattedRole);
+$('#name').prepend(formattedName); 
+$('#headerImg').prepend(formattedPic);
 
 $('#topContacts').prepend(formattedLocation);
 $('#topContacts').prepend(formattedGithub);
@@ -106,12 +106,12 @@ $('#topContacts').prepend(formattedEmail);
 $('#topContacts').prepend(formattedMobile);
 
 if(bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
+  $("#headerSkills").append(HTMLskillsStart);
   $("#skills").append(formattedSkills);
 }
 
 // INTERNATIONALIZE BUTTON 
-$('#header').append(internationalizeButton);
+// $('#header').append(internationalizeButton);
 
 // GOOGLE MAPS 
 $('#mapDiv').append(googleMap);
@@ -132,6 +132,7 @@ function displayWork() {
     $(".work-entry:last").append(formattedWorkLoc);
     var formattedDescr = HTMLworkDescription.replace("%data%", work.jobs[i].description);
     $(".work-entry:last").append(formattedDescr);
+    $(".work-entry:last").append(hr);
   }
 }; 
 
@@ -151,6 +152,7 @@ function displayEducation() {
     $(".education-entry:last").append(formattedEdLoc);
     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
     $(".education-entry:last").append(formattedMajor);
+    $(".education-entry:last").append(hr);
   }
 };
 
@@ -158,15 +160,21 @@ function displayEducation() {
 projects.display = function() {
   for (var i = 0; i < projects.projects.length; i++) { 
     $("#projects").append(HTMLprojectStart);
-    var formattedPrTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-    var formattedPrDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
-    var formattedPrDesc = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
-    var formattedPrImg = HTMLprojectImage.replace("%data%", projects.projects[i].image);
 
+    var formattedPrTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
     $(".project-entry:last").append(formattedPrTitle);
+
+    var formattedPrDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
     $(".project-entry:last").append(formattedPrDates);
+
+    var formattedPrDesc = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
     $(".project-entry:last").append(formattedPrDesc);
-    $(".project-entry:last").append(formattedPrImg);
+
+    for(j = 0; j < projects.projects[i].images.length; j++) {
+      var formattedPrImg = HTMLprojectImage.replace("%data%", projects.projects[i].images[j]);
+      $(".project-entry:last").append(formattedPrImg);
+    }
+    $(".project-entry:last").append(hr);
   }
 };
 

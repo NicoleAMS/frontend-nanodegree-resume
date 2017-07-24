@@ -1,82 +1,92 @@
 <!DOCTYPE html>
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
 <html>
 <head>
-  <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
-
-  <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
-
-  <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
-  -->
-<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
+
 <body>
-  <div id="main">
-    <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
+  <div id="main" class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div id="header" class="center-content clear-fix">
+          <div class="row">
+            <div class="col col-3" id="headerImg">
+            </div>
+            <div class="col col-9" id="name">
+              <div class="row">
+                <div class="col-6" id="headerSkills">
+                </div>
+                <div class="col-6">
+                  <ul id="topContacts"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
+
+    <div class="row">
+      <div style="clear: both;"></div>
     </div>
-    <div id="projects">
-      <h2>Projects</h2>
+
+    <div class="row">
+      <div class="col col-12">
+        <div id="workExperience" class="gray">
+          <h2>Work Experience</h2>
+        </div>
+      </div>
     </div>
-    <div id="education" class="gray">
-      <h2>Education</h2>
+
+    <div class="row">
+      <div class="col col-12">
+        <div id="projects">
+          <h2>Projects</h2>
+        </div>
+      </div>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
+
+
+    <div class="row">
+      <div class="col col-12">
+        <div id="education" class="gray">
+          <h2>Education</h2>
+        </div>
+      </div>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
+
+    <div class="row">
+      <div class="col col-12">
+        <div id="mapDiv">
+          <h2>Where I've Lived and Worked</h2>
+        </div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col col-12">
+        <div id="lets-connect" class="dark-gray">
+          <h2 class="orange center-text">Let's Connect</h2>
+          <ul id="footerContacts" class="flex-box"></ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
   <script src="js/jQuery.js"></script>
-
-  <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
-
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.
-  -->
   <script src="js/resumeBuilder.js"></script>
 
 
   <script>
-    // Notice how all of a sudden there's JavaScript inside this HTML
-    // document? You can write JavaScript between <script> tags. At the end of your
-    // JavaScript, don't forget the closing script tag with the slash (/).
-
-
-    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-    //   two slashes for all following characters on a single line, or
-
-    /*
-        an opening and closing set of slash asterisks for block comments.
-    */
-
-
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }

@@ -1,3 +1,9 @@
+/* COLORS 
+
+blue: #2737BE;
+beige: #E6D5C2;
+*/
+
 body,
 div,
 ul,
@@ -26,7 +32,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: white !important;
   line-height: 48px;
   display: inline;
 }
@@ -40,7 +46,6 @@ h2 {
 }
 
 h3 {
-  font-style: italic;
   font-size: 20px;
   color: #000;
   line-height: 22px;
@@ -83,6 +88,11 @@ p {
   font-size: 14px;
   color: #333;
   line-height: 21px;
+}
+
+#role {
+  color: #f5ae23;
+  font-size: 16px;
 }
 
 a {
@@ -157,10 +167,9 @@ ul {
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+  padding-left: 0px;
+  padding-right: 40px;
+  width: 250px;
 }
 
 img {
@@ -176,7 +185,6 @@ span {
 }
 
 #workExperience, #education, #projects {
-  margin: 25px;
   padding: 2%;
 }
 
