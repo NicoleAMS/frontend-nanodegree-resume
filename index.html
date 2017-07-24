@@ -5,6 +5,8 @@
   <title>Resume</title>
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,7 +20,13 @@
           <div class="row">
             <div class="col col-3" id="headerImg">
             </div>
-            <div class="col col-9" id="name">
+            <div class="col col-9">
+              <div class="row">
+                <div class="col col-9" id="headerName">
+                </div>
+                <div class="col col-3" id="button"></div>
+              </div>
+              <hr>
               <div class="row">
                 <div class="col-6" id="headerSkills">
                 </div>
@@ -38,6 +46,7 @@
 
     <div class="row">
       <div class="col col-12">
+        <button id="toggleButton" class="btn btn-primary" onclick="toggle()">Display Work Experience</button>
         <div id="workExperience" class="gray">
           <h2>Work Experience</h2>
         </div>

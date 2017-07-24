@@ -13,7 +13,7 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<p id="role">%data%</p><hr>';
+var HTMLheaderRole = '<p id="role">%data%</p>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile:</span><span class="white-text">%data%</span></li>';
@@ -55,17 +55,18 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+var internationalizeButton = '<button class="btn btn-primary" id="intButton">Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 var hr = '<hr>';
+var toggleButton = '<button class="btn btn-primary" onclick="toggle">v</button>';
 
 
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
-  $('button').click(function() {
+  $('#intButton').click(function() {
     var $name = $('#name');
     var iName = inName($name.text()) || function(){};
     $name.html(iName);

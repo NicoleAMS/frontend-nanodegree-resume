@@ -66,6 +66,13 @@ h5 {
 
 }
 
+#workExperience {
+  display: none;
+}
+
+#toggleButton {
+  margin: 25px;
+}
 
 .date-text {
   font-style: italic;

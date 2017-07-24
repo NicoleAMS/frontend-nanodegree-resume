@@ -96,8 +96,9 @@ var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 
 // HEADER 
 // $('#header').prepend(formattedWelcomeMssg); 
-$('#name').prepend(formattedRole);
-$('#name').prepend(formattedName); 
+$('#button').prepend(internationalizeButton);
+$('#headerName').prepend(formattedRole);
+$('#headerName').prepend(formattedName); 
 $('#headerImg').prepend(formattedPic);
 
 $('#topContacts').prepend(formattedLocation);
@@ -109,9 +110,6 @@ if(bio.skills.length > 0) {
   $("#headerSkills").append(HTMLskillsStart);
   $("#skills").append(formattedSkills);
 }
-
-// INTERNATIONALIZE BUTTON 
-// $('#header').append(internationalizeButton);
 
 // GOOGLE MAPS 
 $('#mapDiv').append(googleMap);
@@ -215,6 +213,24 @@ function inName(name) {
   }
   fullName = nameArray.toString().replace(/,/g, " ");
   return fullName; 
+};
+
+// TOGGLE FUNCTION 
+function toggle() {
+  var toggleEl = document.getElementById('workExperience');
+  var button = document.getElementById('toggleButton');
+  if(toggleEl.style.display == "none") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Work Experience";
+  }
+  else if (toggleEl.style.display == "") {
+    toggleEl.style.display = "block";
+    button.innerHTML = "Hide Work Experience";
+  } 
+  else {
+    toggleEl.style.display = "none";
+    button.innerHTML = "Display Work Experience";
+  } 
 };
 
 
